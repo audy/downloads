@@ -1,31 +1,24 @@
 # downloads
 
-Easier HTTP downloads in Python (2 and 3).
+[![Build Status](https://travis-ci.org/audy/downloads.svg?branch=master)](https://travis-ci.org/audy/downloads)
 
-## Motivation
-
-I always forget how to download a file in Python. Also, the standard way of
-downloading a file (urllib) is slightly different between Python 2 and 3.
-
-## Features
-
-- automatically strip parameters from URL when generating filename
+Easier HTTP downloads in Python.
 
 ## Usage
 
 ```python
 from downloads import download
 
-download('https://www...')
+download('http://i.imgur.com/ij2h06p.png')
 
 # output path is automatically determined and returned
 # but you can specify it manually if that's your thing:
 
-download('https://www...', out_path='blah.txt')
+download('http://i.imgur.com/i5pJRxX.jpg', out_path='cheezburger.jpg')
 
 # or, if you want to be fancy:
 
-download('...', progress=True)
+download('https://www.gutenberg.org/files/2600/2600-0.txt', progress=True)
 ```
 
 That's it!
