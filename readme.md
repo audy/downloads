@@ -1,6 +1,7 @@
 # downloads
 
 [![Build Status](https://travis-ci.org/audy/downloads.svg?branch=master)](https://travis-ci.org/audy/downloads)
+[![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
 
 Easier HTTP downloads in Python 3.
 
