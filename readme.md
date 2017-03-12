@@ -2,7 +2,13 @@
 
 [![Build Status](https://travis-ci.org/audy/downloads.svg?branch=master)](https://travis-ci.org/audy/downloads)
 
-Easier HTTP downloads in Python.
+Easier HTTP downloads in Python 3.
+
+## Installation
+
+```
+pip install downloads
+```
 
 ## Usage
 
