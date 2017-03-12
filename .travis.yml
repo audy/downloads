@@ -3,4 +3,5 @@ python:
   - "3.5"
   - "nightly"
 
-script: pytest
+install: "pip install nose"
+script: nosetests
