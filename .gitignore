@@ -2,3 +2,6 @@ venv/
 *.png
 *.jpg
 *.pyc
+build/
+dist/
+*.egg-info/
