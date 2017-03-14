@@ -8,7 +8,7 @@ import sys
 def progress_hook(current, block_size, total_size):
     ''' a simple progress bar '''
 
-    proportion_downloaded = round(float(current*block_size)/total_size, 1)
+    proportion_downloaded = round((float(current*block_size)-block_size)/total_size, 4)
 
     pbar_width = int(70 * proportion_downloaded)
     pbar = '#' * pbar_width
