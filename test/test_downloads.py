@@ -27,3 +27,8 @@ class DownloadsTest(unittest.TestCase):
         war_and_peace = 'https://www.gutenberg.org/files/2600/2600-0.txt'
         out_path = downloads.download('https://i.imgur.com/ij2h06p.png', progress=True)
         self.assertEqual(os.path.exists(out_path), True)
+
+
+    def test_strips_parameters(self):
+        out_path = downloads.download('https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?a=b&c=d')
+        self.assertEqual(os.path.exists('giphy.gif'), True)
