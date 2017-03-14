@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/audy/downloads.svg?branch=master)](https://travis-ci.org/audy/downloads)
 [![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
-[![Documentation](https://readthedocs.org/projects/downloads/badge/?version=latest)](https://downloads.rtfd.io/)
+[![Documentation](https://readthedocs.org/projects/downloads/badge/?version=latest)](http://downloads.rtfd.io/)
 
 Easier HTTP downloads in Python 3.
 
