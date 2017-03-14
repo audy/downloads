@@ -21,6 +21,27 @@ def progress_hook(current, block_size, total_size):
 
 
 def download(url, out_path=None, progress=False):
+    '''
+
+    Download a file given a URL. Returns the downloaded file's local path:
+
+    >>> download('http://i.imgur.com/ij2h06p.png')
+    'ij2h06p.png'
+
+    URL parameters are stripped out before saving:
+
+    >>> download('http://i.imgur.com/ij2h06p.png?foo=bar')
+    'ij2h06p.png'
+
+    You can override the output path:
+
+    >>> download('http://i.imgur.com/ij2h06p.png', out_path='computer.png')
+    'computer.png'
+
+    There's even a fancy progress bar:
+    >>> download('http://i.imgur.com/ij2h06p.png', out_path='computer.png', progress=True)
+    'computer.png'
+    '''
 
     parsed = urlparse(url)
 
