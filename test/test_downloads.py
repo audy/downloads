@@ -23,9 +23,8 @@ class DownloadsTest(unittest.TestCase):
         self.assertEqual(os.path.exists(out_path), True)
 
 
-    def test_downloads_with_progres(self):
-        war_and_peace = 'https://www.gutenberg.org/files/2600/2600-0.txt'
-        out_path = downloads.download(war_and_peace, progress=True)
+    def test_downloads_with_progress(self):
+        out_path = downloads.download('https://i.imgur.com/ij2h06p.png', progress=True)
         self.assertEqual(os.path.exists(out_path), True)
 
 
