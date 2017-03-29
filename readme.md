@@ -4,7 +4,7 @@
 [![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
 [![Documentation](https://readthedocs.org/projects/downloads/badge/?version=latest)](http://downloads.rtfd.io/)
 
-Easier HTTP downloads in Python 3.
+Easier HTTP downloads in Python. Supports 2.7+ and 3.5+.
 
 ## Installation
 
