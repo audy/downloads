@@ -1,9 +1,16 @@
 import os
-
-from urllib.request import urlretrieve
-from urllib.parse import urlparse
-
 import sys
+
+
+if sys.version_info > (3, 0):
+    # python 3
+    from urllib.parse import urlparse
+    from urllib.request import urlretrieve
+else:
+    # python 2
+    from urlparse import urlparse
+    from urllib import urlretrieve
+
 
 def progress_hook(current, block_size, total_size):
     ''' a simple progress bar '''
