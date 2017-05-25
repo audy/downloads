@@ -27,7 +27,7 @@ def progress_hook(current, block_size, total_size):
     sys.stderr.write(pbar_line)
 
 
-def download(url, out_path=None, progress=False):
+def download(url, out_path=None, progress=False, strip_url_params=True):
     '''
 
     Download a file given a URL. Returns the downloaded file's local path:
@@ -53,7 +53,11 @@ def download(url, out_path=None, progress=False):
     parsed = urlparse(url)
 
     if out_path is None:
-        out_path = os.path.join(os.getcwd(), os.path.basename(parsed.path))
+        if strip_url_params:
+            out_basename = os.path.basename(parsed.path)
+        else:
+            out_basename = parsed.path
+        out_path = os.path.join(os.getcwd(), out_basename)
 
     if progress:
         urlretrieve(url, out_path, reporthook=progress_hook)

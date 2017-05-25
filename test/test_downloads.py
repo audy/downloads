@@ -31,3 +31,8 @@ class DownloadsTest(unittest.TestCase):
     def test_strips_parameters(self):
         out_path = downloads.download('https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?a=b&c=d')
         self.assertEqual(os.path.exists('giphy.gif'), True)
+
+
+    def test_doesnt_strips_parameters(self):
+        out_path = downloads.download('https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?a=b&c=d', strip_url_params=False)
+        self.assertEqual(os.path.exists('giphy.gif?a=b&c=d'), True)
