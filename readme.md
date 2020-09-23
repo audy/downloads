@@ -15,7 +15,7 @@ Easier HTTP downloads in Python 3.5+
 ## Installation
 
 ```
-pip install downloads
+pip install downloads==1.0.0
 ```
 
 ## Usage

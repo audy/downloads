@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "downloads"
-version = "1.0.0b"
+version = "1.0.0"
 description = "Easy file downloads"
 authors = ["Austin Davis-Richardson <harekrishna@gmail.com>"]
 license = "MIT"
+readme = "readme.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
