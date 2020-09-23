@@ -1,6 +1,6 @@
 # downloads
 
-[![Build Status](https://travis-ci.org/audy/downloads.svg?branch=master)](https://travis-ci.org/audy/downloads)
+[![test](https://github.com/audy/downloads/workflows/test/badge.svg)](https://github.com/audy/downloads/actions?query=workflow%3Atest)
 [![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
 [![Downloads](https://pepy.tech/badge/downloads/month)](https://pepy.tech/project/downloads)
 
