@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "downloads"
-version = "0.1.0"
+version = "1.0.0b"
 description = "Easy file downloads"
 authors = ["Austin Davis-Richardson <harekrishna@gmail.com>"]
 license = "MIT"
