@@ -6,21 +6,33 @@ from urllib.request import urlretrieve
 from typing import Optional
 
 
-def progress_hook(current, block_size, total_size):
-    """ a simple progress bar """
+def _progress_bar(
+    current: int, block_size: int, total_size: int, bar_width: int = 100
+) -> str:
 
     proportion_downloaded = round(
-        (float(current * block_size) - block_size) / total_size, 4
+        (float(current * block_size)) / total_size, 8
     )
 
-    pbar_width = int(70 * proportion_downloaded)
+    pbar_width = int(bar_width * proportion_downloaded)
     pbar = "#" * pbar_width
 
-    ws_width = int((70 - (70 * proportion_downloaded)))
+    ws_width = int((bar_width - (bar_width * proportion_downloaded)))
     ws = " " * ws_width
 
-    pbar_line = "{}{}{:7.1f}%\r".format(pbar, ws, 100 * proportion_downloaded)
-    sys.stderr.write(pbar_line)
+    pbar_line = "{}{}{:7.1f}%".format(pbar, ws, 100 * proportion_downloaded)
+    return pbar_line
+
+
+def progress_hook(current: int, block_size: int, total_size: int) -> None:
+    """ a simple progress bar """
+
+    sys.stderr.write(
+        _progress_bar(
+            current=current, block_size=block_size, total_size=total_size
+        )
+        + "\r"
+    )
 
 
 def download(
