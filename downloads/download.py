@@ -26,7 +26,7 @@ def _progress_bar(
     return pbar_line
 
 
-def progress_hook(current: int, block_size: int, total_size: int) -> None:
+def _progress_hook(current: int, block_size: int, total_size: int) -> None:
     """ a simple progress bar """
 
     sys.stderr.write(
@@ -74,7 +74,7 @@ def download(
         temp_out_path = os.path.join(tmpdir, os.path.basename(out_path))
 
         if progress:
-            urlretrieve(url, temp_out_path, reporthook=progress_hook)
+            urlretrieve(url, temp_out_path, reporthook=_progress_hook)
             # finish off progress bar
             sys.stderr.write("\n")
         else:
