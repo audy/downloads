@@ -1,4 +1,4 @@
-# downloads
+# Downloads
 
 [![test](https://github.com/audy/downloads/workflows/test/badge.svg)](https://github.com/audy/downloads/actions?query=workflow%3Atest)
 [![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
@@ -6,6 +6,11 @@
 
 Easier HTTP downloads in Python 3.5+
 
+## Features
+
+1. Easier to remember than `urllib`
+2. Files are not written unless download finishes
+3. Progress bar!
 
 ## Installation
 
