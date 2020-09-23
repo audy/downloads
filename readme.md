@@ -1,7 +1,7 @@
 # Downloads
 
 [![test](https://github.com/audy/downloads/workflows/test/badge.svg)](https://github.com/audy/downloads/actions?query=workflow%3Atest)
-[![PyPI version](https://badge.fury.io/py/downloads.svg)](https://badge.fury.io/py/downloads)
+[![PyPI version](https://badge.fury.io/py/downloads.svg)](https://pypi.org/project/downloads/)
 [![Downloads](https://pepy.tech/badge/downloads/month)](https://pepy.tech/project/downloads)
 
 Easier HTTP downloads in Python 3.5+
