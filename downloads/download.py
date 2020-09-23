@@ -5,6 +5,8 @@ from urllib.request import urlretrieve
 
 from typing import Optional
 
+from tempfile import TemporaryDirectory
+
 
 def _progress_bar(
     current: int, block_size: int, total_size: int, bar_width: int = 100
@@ -68,11 +70,16 @@ def download(
         else out_path
     )
 
-    if progress:
-        urlretrieve(url, out_path, reporthook=progress_hook)
-        # finish off progress bar
-        sys.stderr.write("\n")
-    else:
-        urlretrieve(url, out_path)
+    with TemporaryDirectory() as tmpdir:
+        temp_out_path = os.path.join(tmpdir, os.path.basename(out_path))
+
+        if progress:
+            urlretrieve(url, temp_out_path, reporthook=progress_hook)
+            # finish off progress bar
+            sys.stderr.write("\n")
+        else:
+            urlretrieve(url, temp_out_path)
+
+        os.rename(temp_out_path, out_path)
 
     return out_path
