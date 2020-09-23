@@ -40,3 +40,4 @@ def test_progress_bar(current, block_size, total_size):
 
     assert bar.count("#") == current
     assert bar.split()[-1] == f"{current:.1f}%"
+    assert len(bar) == 100 + 8
