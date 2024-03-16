@@ -30,7 +30,9 @@ def _progress_hook(current: int, block_size: int, total_size: int) -> None:
     )
 
 
-def download(url: str, out_path: Optional[str] = None, progress: bool = False) -> str:
+def download(
+    url: str, out_path: Optional[str] = None, progress: bool = False, use_tmp_dir: bool = True
+) -> str:
     """
 
     Download a file given a URL. Returns the downloaded file's local path:
@@ -51,6 +53,10 @@ def download(url: str, out_path: Optional[str] = None, progress: bool = False) -
     There's even a fancy progress bar:
     >>> download('http://i.imgur.com/ij2h06p.png', out_path='computer.png', progress=True)
     'computer.png'
+
+    Do not use a temporary directory to store file while downloading. Useful in
+    cases where /tmp is not writeable (E.g., some Docker containers)
+    >>> download('http://i.imgur.com/ij2h06p.png', use_tmp_dir=False)
     """
 
     parsed = urlparse(url)
@@ -64,13 +70,21 @@ def download(url: str, out_path: Optional[str] = None, progress: bool = False) -
     else:
         reporthook = None
 
-    with TemporaryDirectory() as tmpdir:
-        temp_out_path = os.path.join(tmpdir, os.path.basename(out_path))
+    if use_tmp_dir:
+        tmpdir_obj = TemporaryDirectory()
+        tmpdir = tmpdir_obj.name
+    else:
+        tmpdir = os.getcwd()
 
-        urlretrieve(url, temp_out_path, reporthook=reporthook)
-        os.rename(temp_out_path, out_path)
+    temp_out_path = os.path.join(tmpdir, os.path.basename(out_path) + ".tmp")
+
+    urlretrieve(url, temp_out_path, reporthook=reporthook)
+    os.rename(temp_out_path, out_path)
 
     if progress:
         sys.stderr.write("\n")  # finish progress bar
+
+    if use_tmp_dir:
+        tmpdir_obj.cleanup()
 
     return out_path
