@@ -1,36 +1,30 @@
 import downloads
 import os
 
+FILE_URL = "https://raw.githubusercontent.com/audy/downloads/master/readme.md"
+
 
 def test_downloads(run_in_tmp_path):
-    out_path = downloads.download("http://i.imgur.com/ij2h06p.png")
-    assert os.path.exists(out_path) == True
+    out_path = downloads.download(FILE_URL)
+    assert os.path.exists(out_path)
 
 
 def test_downloads_with_out_path(run_in_tmp_path):
-    out_path = downloads.download(
-        "http://i.imgur.com/i5pJRxX.jpg", out_path="cheezburger.jpg"
-    )
+    downloads.download(FILE_URL, out_path="readme.md")
 
-    assert os.path.exists("cheezburger.jpg")
+    assert os.path.exists("readme.md")
 
 
 def test_downloads_https(run_in_tmp_path):
-    out_path = downloads.download(
-        "https://i.imgur.com/ij2h06p.png", out_path="http-test.png"
-    )
+    out_path = downloads.download(FILE_URL, out_path="test.md")
     assert os.path.exists(out_path)
 
 
 def test_downloads_with_progress(run_in_tmp_path):
-    out_path = downloads.download(
-        "https://i.imgur.com/ij2h06p.png", progress=True
-    )
+    out_path = downloads.download(FILE_URL, progress=True)
     assert os.path.exists(out_path)
 
 
 def test_strips_parameters(run_in_tmp_path):
-    out_path = downloads.download(
-        "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif?a=b&c=d"
-    )
-    assert os.path.exists("giphy.gif")
+    downloads.download(f"{FILE_URL}?test=true")
+    assert os.path.exists("readme.md")
