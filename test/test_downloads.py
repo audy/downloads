@@ -1,5 +1,6 @@
 import downloads
 import os
+from pathlib import Path
 
 FILE_URL = "https://raw.githubusercontent.com/audy/downloads/master/readme.md"
 
@@ -33,3 +34,10 @@ def test_downloads_no_tmp_dir(run_in_tmp_path):
 def test_strips_parameters(run_in_tmp_path):
     downloads.download(f"{FILE_URL}?test=true")
     assert os.path.exists("readme.md")
+
+
+def test_downloads_use_pathlib(run_in_tmp_path):
+    out_path = Path("test.md")
+    result = downloads.download(FILE_URL, out_path=out_path)
+
+    assert os.path.exists(result)

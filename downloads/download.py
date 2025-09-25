@@ -2,14 +2,12 @@ import os
 import sys
 from urllib.parse import urlparse
 from urllib.request import urlretrieve
-
-from typing import Optional
+from pathlib import Path
 
 from tempfile import TemporaryDirectory
 
 
 def _progress_bar(current: int, block_size: int, total_size: int, bar_width: int = 100) -> str:
-
     proportion_downloaded = round((float(current * block_size)) / total_size, 8)
 
     pbar_width = int(bar_width * proportion_downloaded)
@@ -31,7 +29,7 @@ def _progress_hook(current: int, block_size: int, total_size: int) -> None:
 
 
 def download(
-    url: str, out_path: Optional[str] = None, progress: bool = False, use_tmp_dir: bool = True
+    url: str, out_path: str | None | Path = None, progress: bool = False, use_tmp_dir: bool = True
 ) -> str:
     """
 
