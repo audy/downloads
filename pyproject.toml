@@ -1,17 +1,12 @@
-[tool.poetry]
+[project]
 name = "downloads"
 version = "1.1.0"
 description = "Easy file downloads"
-authors = ["Austin Davis-Richardson <accounts@agdr.org>"]
-license = "MIT"
-readme = "readme.md"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
 
-[tool.poetry.dependencies]
-python = "^3.12"
-
-[tool.poetry.dev-dependencies]
-pytest = "^8.1.1"
-
-[build-system]
-requires = ["poetry>=1.8.2"]
-build-backend = "poetry.masonry.api"
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
