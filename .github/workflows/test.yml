@@ -23,18 +23,18 @@ jobs:
         run: |
           python -m venv venv
           . venv/bin/activate
-          pip install -q -U pip poetry
-          poetry install
+          pip install -q -U pip uv
+          uv sync
 
       - name: Run tests
         run: |
           . venv/bin/activate
-          poetry run pytest
+          uv run pytest
 
       - name: Build package
         run: |
           . venv/bin/activate
-          poetry build
+          uv build
 
       - name: Publish package
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
