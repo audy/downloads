@@ -25,6 +25,7 @@ jobs:
           . venv/bin/activate
           pip install -q -U pip uv
           uv sync
+          uv pip install -e .
 
       - name: Run tests
         run: |
