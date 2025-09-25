@@ -1,6 +1,7 @@
-import downloads
 import os
 from pathlib import Path
+
+import downloads
 
 FILE_URL = "https://raw.githubusercontent.com/audy/downloads/master/readme.md"
 
